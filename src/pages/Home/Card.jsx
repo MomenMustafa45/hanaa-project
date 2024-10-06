@@ -78,11 +78,14 @@ export default function Cards() {
         <Card
           href="/Matrix"
           className="p-9 w-80 text-center h-52 transform transition-transform duration-300 hover:scale-105 hover:shadow-lg relative"
-
+          style={{
+            border: "9px solid rgba(128, 128, 128, 0.9)",
+            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url("${imageThree}")`,
+            backgroundPosition: "center",
+            backgroundSize: "cover"
+          }}
         >
-          <div className=" absolute w-full h-full top-0 left-0">
-            <img src={imageThree} alt="" className="w-full" />
-          </div>
+
           <h1
             className="text-4xl font-bold tracking-tight text-white dark:text-white"
             style={{ fontFamily: "cursive" }}
