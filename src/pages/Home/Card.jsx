@@ -4,8 +4,12 @@ import { Card } from "flowbite-react";
 import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import db from "../../config/firebase";
+import imageOne from '../../assets/emp.jpeg';
+import imageTwo from '../../assets/articals.jpeg';
+import imageThree from '../../assets/matriex.jpeg';
+
 export default function Cards() {
-  const {t}=useTranslation("global");
+  const { t } = useTranslation("global");
   const [user, setUser] = useState("");
   useEffect(() => {
     const fetchUser = async () => {
@@ -31,72 +35,14 @@ export default function Cards() {
 
   return (
     <div className="flex justify-center items-center mb-16 mt-5">
-  <div className="flex gap-8 items-center sm:p-4 flex-wrap justify-center">
-      {/* Card 1 */}
-      <Card
-        href="/users"
-        className="p-9 w-80 text-center h-52 transform transition-transform duration-300 hover:scale-105 hover:shadow-lg"
-        style={{
-          border: "9px solid rgba(128, 128, 128, 0.9)",
-          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url("./src/assets/emp.jpeg")`,
-          backgroundPosition: "center",
-          backgroundSize: "cover"
-        }}
-      >
-        <h1
-          className="text-4xl font-bold tracking-tight text-white dark:text-white"
-          style={{ fontFamily: "cursive" }}
-        >
-          {t("text.Employees")} 
-        </h1>
-      </Card>
-
-      {/* Card 2 */}
-      <Card
-        href="/sujects"
-        className="p-9 w-80 text-center h-52 transform transition-transform duration-300 hover:scale-105 hover:shadow-lg"
-        style={{
-          border: "9px solid rgba(128, 128, 128, 0.9)", 
-          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url("./src/assets/articals.jpeg")`,
-          backgroundPosition: "center",
-          backgroundSize: "cover"
-        }}
-      >
-        <h1
-          className="text-4xl font-bold tracking-tight text-white dark:text-white"
-          style={{ fontFamily: "cursive" }}
-        >
-          {t("text.Articles")}
-        </h1>
-      </Card>
-
-      {/* Card 3 */}
-      <Card
-        href="/Matrix"
-        className="p-9 w-80 text-center h-52 transform transition-transform duration-300 hover:scale-105 hover:shadow-lg"
-        style={{
-          border: "9px solid rgba(128, 128, 128, 0.9)", 
-          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url("./src/assets/matriex.jpeg")`,
-          backgroundPosition: "center",
-          backgroundSize: "cover"
-        }}
-      >
-        <h1
-          className="text-4xl font-bold tracking-tight text-white dark:text-white"
-          style={{ fontFamily: "cursive" }}
-        >
-          {t("text.Matrices")}
-        </h1>
-      </Card>
-
-      {/* Card 4 */}
-      {user.accountType === "admin" && (
+      <div className="flex gap-8 items-center sm:p-4 flex-wrap justify-center">
+        {/* Card 1 */}
         <Card
-          href="/dashboard"
+          href="/users"
           className="p-9 w-80 text-center h-52 transform transition-transform duration-300 hover:scale-105 hover:shadow-lg"
           style={{
-            border: "9px solid rgba(128, 128, 128, 0.9)", 
-            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url("./src/assets/WhatsApp Image 2024-10-02 at 7.14.55 AM.jpeg")`,
+            border: "9px solid rgba(128, 128, 128, 0.9)",
+            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url("${imageOne}")`,
             backgroundPosition: "center",
             backgroundSize: "cover"
           }}
@@ -105,11 +51,69 @@ export default function Cards() {
             className="text-4xl font-bold tracking-tight text-white dark:text-white"
             style={{ fontFamily: "cursive" }}
           >
-            {t("text.DashBoard")}
+            {t("text.Employees")}
           </h1>
         </Card>
-      )}
+
+        {/* Card 2 */}
+        <Card
+          href="/sujects"
+          className="p-9 w-80 text-center h-52 transform transition-transform duration-300 hover:scale-105 hover:shadow-lg"
+          style={{
+            border: "9px solid rgba(128, 128, 128, 0.9)",
+            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url("${imageTwo}")`,
+            backgroundPosition: "center",
+            backgroundSize: "cover"
+          }}
+        >
+          <h1
+            className="text-4xl font-bold tracking-tight text-white dark:text-white"
+            style={{ fontFamily: "cursive" }}
+          >
+            {t("text.Articles")}
+          </h1>
+        </Card>
+
+        {/* Card 3 */}
+        <Card
+          href="/Matrix"
+          className="p-9 w-80 text-center h-52 transform transition-transform duration-300 hover:scale-105 hover:shadow-lg"
+          style={{
+            border: "9px solid rgba(128, 128, 128, 0.9)",
+            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url("${imageThree}")`,
+            backgroundPosition: "center",
+            backgroundSize: "cover"
+          }}
+        >
+          <h1
+            className="text-4xl font-bold tracking-tight text-white dark:text-white"
+            style={{ fontFamily: "cursive" }}
+          >
+            {t("text.Matrices")}
+          </h1>
+        </Card>
+
+        {/* Card 4 */}
+        {user.accountType === "admin" && (
+          <Card
+            href="/dashboard"
+            className="p-9 w-80 text-center h-52 transform transition-transform duration-300 hover:scale-105 hover:shadow-lg"
+            style={{
+              border: "9px solid rgba(128, 128, 128, 0.9)",
+              backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url("./src/assets/WhatsApp Image 2024-10-02 at 7.14.55 AM.jpeg")`,
+              backgroundPosition: "center",
+              backgroundSize: "cover"
+            }}
+          >
+            <h1
+              className="text-4xl font-bold tracking-tight text-white dark:text-white"
+              style={{ fontFamily: "cursive" }}
+            >
+              {t("text.DashBoard")}
+            </h1>
+          </Card>
+        )}
+      </div>
     </div>
-  </div>
   );
 }
